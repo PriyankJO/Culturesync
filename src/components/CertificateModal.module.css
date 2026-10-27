@@ -1,0 +1,214 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(8,8,9,0.72);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 24px;
+  animation: fadeIn 0.2s var(--ease) both;
+}
+@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+
+.shell {
+  width: 100%;
+  max-width: 920px;
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  animation: pop 0.28s var(--ease) both;
+}
+@keyframes pop {
+  from { opacity: 0; transform: translateY(14px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.toolbarTitle {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--gold-lt);
+  font-weight: 600;
+}
+.toolbarActions { display: flex; gap: 10px; }
+.printBtn {
+  background: linear-gradient(135deg, var(--gold), var(--gold-dk));
+  color: #1a1408;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 9px 16px;
+  border-radius: var(--radius-sm);
+}
+.printBtn:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.closeBtn {
+  background: var(--bg3);
+  color: var(--text2);
+  width: 34px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+}
+.closeBtn:hover { color: var(--text); background: var(--bg4); }
+
+.certWrap {
+  overflow-y: auto;
+  padding: 28px;
+  background: var(--bg);
+  display: flex;
+  justify-content: center;
+}
+
+.cert {
+  width: 100%;
+  aspect-ratio: 297 / 210; /* A4 landscape */
+  background: linear-gradient(135deg, #17171a, #1c1c20);
+}
+
+.certBorder {
+  position: relative;
+  height: 100%;
+  margin: 14px;
+  border: 2px solid var(--gold);
+  outline: 1px solid rgba(201,168,76,0.35);
+  outline-offset: 6px;
+  border-radius: 4px;
+  padding: 28px 48px;
+  background:
+    radial-gradient(ellipse at top, rgba(201,168,76,0.08), transparent 60%),
+    radial-gradient(ellipse at bottom, rgba(201,168,76,0.06), transparent 60%);
+}
+
+.corner {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border: 2px solid var(--gold-lt);
+}
+.corner[data-pos="tl"] { top: -8px; left: -8px; border-right: none; border-bottom: none; }
+.corner[data-pos="tr"] { top: -8px; right: -8px; border-left: none; border-bottom: none; }
+.corner[data-pos="bl"] { bottom: -8px; left: -8px; border-right: none; border-top: none; }
+.corner[data-pos="br"] { bottom: -8px; right: -8px; border-left: none; border-top: none; }
+
+.emblem {
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 34px;
+  line-height: 1;
+}
+.collegeName {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--gold-lt);
+  letter-spacing: 0.01em;
+}
+.instTag {
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-top: 2px;
+}
+.goldLine {
+  width: 140px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 16px 0;
+  opacity: 0.7;
+}
+.certKind {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.presentedTo {
+  font-size: 13px;
+  color: var(--text2);
+  margin-bottom: 14px;
+}
+.winnerName {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--gold-lt);
+  font-style: italic;
+  line-height: 1.15;
+}
+.dept {
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-top: 4px;
+  margin-bottom: 18px;
+}
+.body {
+  font-size: 15px;
+  color: var(--text2);
+  max-width: 480px;
+  line-height: 1.7;
+}
+.body strong { color: var(--text); font-weight: 600; }
+
+.footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  width: 100%;
+  max-width: 560px;
+  margin-top: 40px;
+}
+.sigBlock, .dateBlock {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 10.5px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.dateValue {
+  font-family: var(--font-display);
+  font-size: 14px;
+  color: var(--text2);
+  text-transform: none;
+  letter-spacing: 0;
+  margin-bottom: 6px;
+}
+.sigLine {
+  width: 100%;
+  height: 1px;
+  background: var(--border2);
+  margin-bottom: 6px;
+}
+
+/* ── Print ─────────────────────────────────────────── */
+@media print {
+  body * { visibility: hidden; }
+  #certificate-print-area, #certificate-print-area * { visibility: visible; }
+  #certificate-print-area {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+  }
+  @page { size: landscape; margin: 0; }
+}

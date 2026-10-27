@@ -1,0 +1,357 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.userBanner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 18px 24px;
+  flex-wrap: wrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.userBanner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold-dk), var(--gold-lt), transparent);
+  opacity: 0.5;
+}
+
+.userAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--gold-bg);
+  border: 1px solid rgba(201,168,76,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--gold-lt);
+}
+
+.userName {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.userMeta {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
+  font-family: 'Courier New', monospace;
+}
+
+.userStats {
+  display: flex;
+  gap: 24px;
+  margin-left: auto;
+}
+
+.userStat {
+  text-align: center;
+}
+
+.userStatNum {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--gold-lt);
+  line-height: 1;
+}
+
+.userStatLabel {
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 2px;
+}
+
+/* Table */
+.tableWrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead tr {
+  background: var(--bg3);
+  border-bottom: 1px solid var(--border);
+}
+
+.table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13.5px;
+  color: var(--text);
+  vertical-align: middle;
+}
+
+.table tbody tr:last-child td { border-bottom: none; }
+.table tbody tr:hover { background: var(--bg3); }
+
+.eventCell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.eventEmoji { font-size: 18px; }
+
+.eventName {
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.subCatTag {
+  background: var(--purple-bg);
+  color: var(--purple);
+  border: 1px solid rgba(155,124,247,0.2);
+  font-size: 11.5px;
+  padding: 3px 10px;
+  border-radius: 99px;
+}
+
+.dateCell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.time {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.muted {
+  font-size: 12.5px;
+  color: var(--text2);
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  padding: 3px 10px;
+  border-radius: 99px;
+  font-weight: 500;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.confirmed {
+  background: var(--green-bg);
+  color: var(--green);
+  border: 1px solid rgba(62,207,142,0.2);
+}
+.confirmed .statusDot { background: var(--green); }
+
+.pending {
+  background: var(--orange-bg);
+  color: var(--orange);
+  border: 1px solid rgba(240,106,53,0.2);
+}
+.pending .statusDot { background: var(--orange); }
+
+.actions { display: flex; gap: 4px; }
+
+.actionBtn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.actionBtn:hover {
+  background: var(--bg-hover);
+}
+
+.printBtn {
+  background: var(--gold-bg);
+  border-color: rgba(201,168,76,0.3);
+  color: var(--gold-dk);
+}
+
+.printBtn:hover {
+  background: var(--gold);
+  color: #fff;
+}
+
+.viewBtn {
+  background: var(--blue-bg);
+  border-color: rgba(52,152,219,0.3);
+  color: var(--blue);
+}
+
+.viewBtn:hover {
+  background: var(--blue);
+  color: #fff;
+}
+
+.cancelBtn:hover {
+  background: var(--red-bg) !important;
+  border-color: rgba(240,82,82,0.3) !important;
+  color: var(--red) !important;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 56px 24px;
+  font-size: 36px;
+  color: var(--muted);
+}
+
+.empty p {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--text2);
+}
+
+.emptySub {
+  font-family: var(--font-body) !important;
+  font-size: 13px !important;
+  color: var(--muted) !important;
+}
+
+.ticketGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+  padding: 16px;
+}
+
+.ticketCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.ticketHeader {
+  padding: 16px;
+  background: var(--bg3);
+  border-bottom: 2px dashed var(--border);
+  border-top: 4px solid var(--gold);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ticketEventName {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ticketToken {
+  background: var(--gold-bg);
+  color: var(--gold-dk);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border: 1px dashed var(--gold);
+}
+
+.ticketBody {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ticketSubCategory {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.ticketDetailRow {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+}
+
+.ticketDetailRow strong {
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.ticketDetailRow span {
+  color: var(--text);
+}
+
+.ticketFooter {
+  padding: 12px 16px;
+  background: var(--bg3);
+  border-top: 1px dashed var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ticketActions {
+  display: flex;
+  gap: 8px;
+}
+
+@media print {
+  .userBanner { display: none; }
+  body { background: #fff; color: #000; }
+  .ticketCard { border: 1px solid #000; break-inside: avoid; margin-bottom: 20px; box-shadow: none; }
+  .ticketActions { display: none; }
+}

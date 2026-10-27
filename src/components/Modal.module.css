@@ -1,0 +1,442 @@
+/* Overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: fadeIn 0.18s ease both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Modal panel */
+.modal {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 460px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg), 0 0 60px rgba(0,0,0,0.5);
+  animation: slideUp 0.22s var(--ease) both;
+}
+
+.modalWide {
+  max-width: 620px;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Modal top bar */
+.modalTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 22px 22px 16px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+.modalTop::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.5;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+
+.topRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modalTitle {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.modalSub {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+.closeBtn {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--bg4);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+
+.closeBtn:hover {
+  background: var(--red-bg);
+  border-color: rgba(240,82,82,0.3);
+  color: var(--red);
+}
+
+/* Admin / restricted badges */
+.adminBadge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 99px;
+  background: var(--gold-bg);
+  color: var(--gold-lt);
+  border: 1px solid rgba(201,168,76,0.25);
+}
+
+.restrictedBadge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 99px;
+  background: var(--red-bg);
+  color: var(--red);
+  border: 1px solid rgba(240,82,82,0.25);
+}
+
+/* Banners */
+.errorBanner {
+  background: var(--red-bg);
+  border-bottom: 1px solid rgba(240,82,82,0.2);
+  color: var(--red);
+  font-size: 13px;
+  padding: 10px 22px;
+}
+
+/* Body */
+.body {
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Section label */
+.sectionLabel {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  opacity: 0.8;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Field */
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.input {
+  /* inherits global styles */
+}
+
+.inputError {
+  border-color: var(--red) !important;
+}
+
+.errMsg {
+  font-size: 11px;
+  color: var(--red);
+}
+
+/* Row layouts */
+.row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.row3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+
+/* Competition input */
+.addCompRow {
+  display: flex;
+  gap: 8px;
+}
+
+.addCompBtn {
+  white-space: nowrap;
+  padding: 0 16px;
+  border-radius: var(--radius-sm);
+  background: var(--gold-bg);
+  border: 1px solid rgba(201,168,76,0.3);
+  color: var(--gold-lt);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  height: 40px;
+}
+
+.addCompBtn:hover {
+  background: rgba(201,168,76,0.18);
+}
+
+.compTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.compTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  color: var(--text);
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 99px;
+}
+
+.compRemove {
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  padding: 0;
+  transition: color 0.12s;
+}
+
+.compRemove:hover { color: var(--red); }
+
+/* Color swatches */
+.colorRow {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 6px 0;
+}
+
+.colorSwatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s, border-color 0.15s;
+}
+
+.colorSwatch:hover { transform: scale(1.15); }
+
+.colorActive {
+  border-color: white !important;
+  transform: scale(1.15);
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.15);
+}
+
+/* Emoji grid */
+.emojiGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.emojiBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  font-size: 17px;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emojiBtn:hover {
+  background: var(--surface2);
+  border-color: var(--border2);
+  transform: scale(1.1);
+}
+
+.emojiBtnActive {
+  background: var(--gold-bg) !important;
+  border-color: rgba(201,168,76,0.4) !important;
+  box-shadow: var(--shadow-gold);
+  transform: scale(1.1);
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  gap: 10px;
+  padding-top: 4px;
+}
+
+.submitBtn {
+  flex: 1;
+  padding: 11px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--gold-dk), var(--gold));
+  border: none;
+  color: #0e0e10;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  letter-spacing: 0.02em;
+}
+
+.submitBtn:hover { opacity: 0.9; }
+
+.secondaryBtn {
+  padding: 11px 20px;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: 1px solid var(--border2);
+  color: var(--text2);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.secondaryBtn:hover {
+  background: var(--surface2);
+  color: var(--text);
+}
+
+/* Success state */
+.successState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 24px;
+  text-align: center;
+  gap: 10px;
+}
+
+.successIcon {
+  font-size: 48px;
+  animation: popIn 0.4s var(--ease) both;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.5); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+.successTitle {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.successSub {
+  font-size: 13.5px;
+  color: var(--muted);
+}
+
+.doneBtn {
+  margin-top: 12px;
+  padding: 10px 28px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--gold-dk), var(--gold));
+  border: none;
+  color: #0e0e10;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.doneBtn:hover { opacity: 0.9; }
+
+/* Add Participant — mode toggle (existing student vs new student) */
+.roleSelectorRow {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.modeTab {
+  flex: 1;
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border2);
+  background: var(--bg3);
+  color: var(--text2);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.modeTab:hover { border-color: var(--gold); color: var(--text); }
+.modeTabActive {
+  background: var(--gold-bg);
+  border-color: var(--gold);
+  color: var(--gold-lt);
+}
+
+@media (max-width: 600px) {
+  .row2, .row3 {
+    grid-template-columns: 1fr;
+  }
+  .actions {
+    flex-direction: column;
+  }
+  .modal {
+    max-height: 95vh;
+    border-radius: var(--radius-lg);
+  }
+  .overlay {
+    padding: 12px;
+  }
+  .modalTop {
+    padding: 16px 16px 12px;
+  }
+  .body {
+    padding: 16px;
+  }
+}
